@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId } from '../constants'
+import { Chain, ChainId } from '../constants'
 import { validateAndParseAddress } from '../utils'
 import { Currency } from './currency'
 
@@ -56,28 +56,49 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   }
 }
 
-export const WETH = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET,
-    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.ROPSTEN]: new Token(
-    ChainId.ROPSTEN,
-    '0xc778417E063141139Fce010982780140Aa0cD5Ab',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.RINKEBY]: new Token(
-    ChainId.RINKEBY,
-    '0xc778417E063141139Fce010982780140Aa0cD5Ab',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6', 18, 'WETH', 'Wrapped Ether'),
-  [ChainId.KOVAN]: new Token(ChainId.KOVAN, '0xd0A1E359811322d97991E03f863a0C30C2cF029C', 18, 'WETH', 'Wrapped Ether')
+export const WETH_MAINNET = new Token(
+  Chain.MAINNET,
+  '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
+
+export const WETH_ROPSTEN = new Token(
+  Chain.ROPSTEN,
+  '0xc778417E063141139Fce010982780140Aa0cD5Ab',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
+
+export const WETH_RINKEBY = new Token(
+  Chain.RINKEBY,
+  '0xc778417E063141139Fce010982780140Aa0cD5Ab',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
+
+export const WETH_GÖRLI = new Token(
+  Chain.GÖRLI,
+  '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
+export const WETH_KOVAN = new Token(
+  Chain.KOVAN,
+  '0xd0A1E359811322d97991E03f863a0C30C2cF029C',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
+
+export const WETH: Partial<Record<ChainId, Token>> = {
+  [Chain.MAINNET]: WETH_MAINNET,
+  [Chain.ROPSTEN]: WETH_ROPSTEN,
+  [Chain.RINKEBY]: WETH_RINKEBY,
+  [Chain.GÖRLI]: WETH_GÖRLI,
+  [Chain.KOVAN]: WETH_KOVAN
 }

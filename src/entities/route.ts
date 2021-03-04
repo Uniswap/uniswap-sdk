@@ -14,6 +14,7 @@ export class Route {
   public readonly midPrice: Price
 
   public constructor(pairs: Pair[], input: Currency, output?: Currency) {
+    const weth = WETH[pairs[0].chainId]
     invariant(pairs.length > 0, 'PAIRS')
     invariant(
       pairs.every(pair => pair.chainId === pairs[0].chainId),
@@ -21,17 +22,17 @@ export class Route {
     )
     invariant(
       (input instanceof Token && pairs[0].involvesToken(input)) ||
-        (input === ETHER && pairs[0].involvesToken(WETH[pairs[0].chainId])),
+        (input === ETHER && weth && pairs[0].involvesToken(weth)),
       'INPUT'
     )
     invariant(
       typeof output === 'undefined' ||
         (output instanceof Token && pairs[pairs.length - 1].involvesToken(output)) ||
-        (output === ETHER && pairs[pairs.length - 1].involvesToken(WETH[pairs[0].chainId])),
+        (output === ETHER && weth && pairs[pairs.length - 1].involvesToken(weth)),
       'OUTPUT'
     )
 
-    const path: Token[] = [input instanceof Token ? input : WETH[pairs[0].chainId]]
+    const path: Token[] = [input instanceof Token ? input : weth!]
     for (const [i, pair] of pairs.entries()) {
       const currentInput = path[i]
       invariant(currentInput.equals(pair.token0) || currentInput.equals(pair.token1), 'PATH')

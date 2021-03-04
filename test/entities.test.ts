@@ -1,13 +1,13 @@
 import invariant from 'tiny-invariant'
-import { ChainId, WETH as _WETH, TradeType, Rounding, Token, TokenAmount, Pair, Route, Trade } from '../src'
+import { Chain, TradeType, Rounding, Token, TokenAmount, Pair, Route, Trade, WETH_RINKEBY } from '../src'
 
 const ADDRESSES = [
   '0x0000000000000000000000000000000000000001',
   '0x0000000000000000000000000000000000000002',
   '0x0000000000000000000000000000000000000003'
 ]
-const CHAIN_ID = ChainId.RINKEBY
-const WETH = _WETH[ChainId.RINKEBY]
+const CHAIN_ID = Chain.RINKEBY
+const WETH = WETH_RINKEBY
 const DECIMAL_PERMUTATIONS: [number, number, number][] = [
   [0, 0, 0],
   [0, 9, 18],

@@ -1,9 +1,9 @@
-import { Token, WETH, ChainId, Pair, TokenAmount, Route, ETHER } from '../src'
+import { Token, Chain, Pair, TokenAmount, Route, ETHER, WETH_MAINNET } from '../src'
 
 describe('Route', () => {
-  const token0 = new Token(ChainId.MAINNET, '0x0000000000000000000000000000000000000001', 18, 't0')
-  const token1 = new Token(ChainId.MAINNET, '0x0000000000000000000000000000000000000002', 18, 't1')
-  const weth = WETH[ChainId.MAINNET]
+  const token0 = new Token(Chain.MAINNET, '0x0000000000000000000000000000000000000001', 18, 't0')
+  const token1 = new Token(Chain.MAINNET, '0x0000000000000000000000000000000000000002', 18, 't1')
+  const weth = WETH_MAINNET
   const pair_0_1 = new Pair(new TokenAmount(token0, '100'), new TokenAmount(token1, '200'))
   const pair_0_weth = new Pair(new TokenAmount(token0, '100'), new TokenAmount(weth, '100'))
   const pair_1_weth = new Pair(new TokenAmount(token1, '175'), new TokenAmount(weth, '100'))
@@ -14,7 +14,7 @@ describe('Route', () => {
     expect(route.path).toEqual([token0, token1])
     expect(route.input).toEqual(token0)
     expect(route.output).toEqual(token1)
-    expect(route.chainId).toEqual(ChainId.MAINNET)
+    expect(route.chainId).toEqual(Chain.MAINNET)
   })
 
   it('can have a token as both input and output', () => {

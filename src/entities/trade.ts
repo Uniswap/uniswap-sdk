@@ -89,13 +89,19 @@ export interface BestTradeOptions {
  */
 function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount
-  if (currencyAmount.currency === ETHER) return new TokenAmount(WETH[chainId], currencyAmount.raw)
+  if (currencyAmount.currency === ETHER) {
+    const weth = WETH[chainId]
+    if (weth) return new TokenAmount(weth, currencyAmount.raw)
+  }
   invariant(false, 'CURRENCY')
 }
 
 function wrappedCurrency(currency: Currency, chainId: ChainId): Token {
   if (currency instanceof Token) return currency
-  if (currency === ETHER) return WETH[chainId]
+  if (currency === ETHER) {
+    const weth = WETH[chainId]
+    if (weth) return weth
+  }
   invariant(false, 'CURRENCY')
 }
 
