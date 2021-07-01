@@ -1,0 +1,43 @@
+{
+  "author": "Richard Moore <me@ricmoo.com>",
+  "dependencies": {
+    "@ethersproject/bytes": "^5.0.9",
+    "js-sha3": "0.5.7"
+  },
+  "description": "The keccak256 hash function for ethers.",
+  "ethereum": "donations.ethers.eth",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://gitcoin.co/grants/13/ethersjs-complete-simple-and-tiny-2"
+    },
+    {
+      "type": "individual",
+      "url": "https://www.buymeacoffee.com/ricmoo"
+    }
+  ],
+  "gitHead": "4f67ecdf628268724077ffbbde4b188cd48579ec",
+  "keywords": [
+    "Ethereum",
+    "ethers"
+  ],
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib.esm/index.js",
+  "name": "@ethersproject/keccak256",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "directory": "packages/keccak256",
+    "type": "git",
+    "url": "git://github.com/ethers-io/ethers.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "sideEffects": false,
+  "tarballHash": "0x50cb7463be22d2b78be31d63caba6128c0bf83133875476f778fe0ae062f0878",
+  "types": "./lib/index.d.ts",
+  "version": "5.0.8"
+}

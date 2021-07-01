@@ -1,0 +1,29 @@
+{
+  "name": "babel-plugin-polyfill-regenerator",
+  "version": "0.0.4",
+  "description": "A Babel plugin to inject imports to regenerator-runtime",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babel/babel-polyfills.git",
+    "directory": "packages/babel-plugin-polyfill-regenerator"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "keywords": [
+    "babel-plugin"
+  ],
+  "dependencies": {
+    "@babel/helper-define-polyfill-provider": "^0.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/helper-plugin-test-runner": "^7.10.4"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-0"
+  },
+  "gitHead": "84d6f5b367b9044dcf25d8539a638531effb5add"
+}
